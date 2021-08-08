@@ -1,6 +1,6 @@
-import { StatusBar } from 'expo-status-bar'
 import React, { useState } from 'react'
 import { Text, View, TextInput, Button } from 'react-native'
+
 import styles from './App.styles'
 
 export default function App() {
@@ -9,7 +9,10 @@ export default function App() {
 
   const handleGoalInputChange = inputText => setEnteredGoal(inputText)
 
-  const handleAddGoalPress = () => setGoals([...goals, enteredGoal])
+  const handleAddGoalPress = () => {
+    setGoals([...goals, enteredGoal])
+    setEnteredGoal('')
+  }
 
   return (
     <View style={styles.pageContainer}>
@@ -22,6 +25,7 @@ export default function App() {
         <Button title="Add" onPress={handleAddGoalPress}/>
       </View>
       <View>
+        {goals.map((goal, i)=> <Text key={i}>{goal}</Text>)}
       </View>
     </View>
   )
