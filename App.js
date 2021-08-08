@@ -1,38 +1,28 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
+import { StatusBar } from 'expo-status-bar'
+import React, { useState } from 'react'
+import { Text, View, TextInput, Button } from 'react-native'
+import styles from './App.styles'
 
 export default function App() {
-  const handlePress = () => {
-    console.log('handlePress called!')
-  }
+  const [enteredGoal, setEnteredGoal] = useState('')
+  const [goals, setGoals] = useState([])
+
+  const handleGoalInputChange = inputText => setEnteredGoal(inputText)
+
+  const handleAddGoalPress = () => setGoals([...goals, enteredGoal])
+
   return (
     <View style={styles.pageContainer}>
       <View style={styles.inputContainer}>
-        <TextInput placeholder="Say something!" style={styles.textInput}/>
-        <Button title="Add" onPress={handlePress}/>
+        <TextInput 
+          placeholder="Say something!" 
+          value={enteredGoal} 
+          style={styles.textInput}
+          onChangeText={handleGoalInputChange}/>
+        <Button title="Add" onPress={handleAddGoalPress}/>
       </View>
       <View>
-
       </View>
     </View>
-  );
+  )
 }
-
-const styles = StyleSheet.create({
-  pageContainer: {
-    padding: 30
-  },
-  inputContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between'
-  },
-  textInput: {
-    width: 200,
-    borderBottomColor: 'black',
-    borderBottomWidth: 2,
-    marginBottom: 30,
-    marginTop: 30,
-    paddingBottom: 10
-  }
-});
