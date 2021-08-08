@@ -6,15 +6,26 @@ const styles = StyleSheet.create({
   },
   inputContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    alignItems: 'center'
   },
   textInput: {
-    width: 200,
+    width: '80%',
     borderBottomColor: 'black',
     borderBottomWidth: 2,
     marginBottom: 30,
     marginTop: 30,
     paddingBottom: 10
+  },
+  addItemButton: {
+
+  },
+  listItem: {
+      padding: 10,
+      backgroundColor: '#ccc',
+      borderColor: 'black',
+      borderWidth: 1,
+      marginVertical: 7
   }
 });
 
