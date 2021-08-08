@@ -13,8 +13,7 @@ const styles = StyleSheet.create({
     width: '80%',
     borderBottomColor: 'black',
     borderBottomWidth: 2,
-    marginBottom: 30,
-    marginTop: 30,
+    marginVertical: 30,
     paddingBottom: 10
   },
   addItemButton: {
