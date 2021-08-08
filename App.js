@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Text, View, TextInput, Button, ScrollView } from 'react-native'
+import { Text, View, TextInput, Button, FlatList } from 'react-native'
 
 import styles from './App.styles'
 
@@ -11,8 +11,8 @@ export default function App() {
 
   const handleAddGoalPress = () => {
     if (enteredGoal === '') return;
-    
-    setGoals([...goals, enteredGoal])
+
+    setGoals([...goals, { value: enteredGoal, key: Math.random().toString() + Date.now() }])
     setEnteredGoal('')
   }
 
@@ -26,13 +26,14 @@ export default function App() {
           onChangeText={handleGoalInputChange}/>
         <Button title="Add" onPress={handleAddGoalPress}/>
       </View>
-      <ScrollView>
-        {goals.map((goal, i) => (
-          <View style={styles.listItem} key={i}>
-            <Text>{goal}</Text>
+      <FlatList 
+        data={goals} 
+        renderItem={({item: {value}}) => (
+          <View style={styles.listItem}>
+            <Text>{value}</Text>
           </View>
-        ))}
-      </ScrollView>
+        )}
+      />
     </View>
   )
 }
