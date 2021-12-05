@@ -3,7 +3,7 @@ import { TextInput, Button, View } from 'react-native'
 
 import styles from './GoalInput.styles.js'
 
-const GoalInput = ({setGoals, goals}) => {
+const GoalInput = ({addGoal, goals}) => {
     const [enteredGoal, setEnteredGoal] = useState('')
 
     const handleGoalInputChange = inputText => setEnteredGoal(inputText)
@@ -11,7 +11,7 @@ const GoalInput = ({setGoals, goals}) => {
     const handleAddGoalPress = () => {
       if (enteredGoal === '') return
   
-      setGoals([...goals, { value: enteredGoal, key: Math.random().toString() + Date.now() }])
+      addGoal(enteredGoal)
       setEnteredGoal('')
     }
 
