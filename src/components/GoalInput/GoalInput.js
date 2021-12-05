@@ -1,9 +1,9 @@
-import React from 'react'
-import { TextInput, Button } from 'react-native'
+import React, { useState } from 'react'
+import { TextInput, Button, View } from 'react-native'
 
 import styles from './GoalInput.styles.js'
 
-const GoalInput = ({value}) => {
+const GoalInput = ({setGoals, goals}) => {
     const [enteredGoal, setEnteredGoal] = useState('')
 
     const handleGoalInputChange = inputText => setEnteredGoal(inputText)

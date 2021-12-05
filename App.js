@@ -11,7 +11,7 @@ export default function App() {
 
     return (
         <View style={styles.pageContainer}>
-            <GoalInput />
+            <GoalInput setGoals={setGoals} goals={goals} />
             <FlatList 
                 data={goals} 
                 renderItem={({item: {value}}) => <GoalItem value={value}/>}
