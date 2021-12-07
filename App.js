@@ -9,12 +9,16 @@ import styles from './App.styles'
 export default function App() {
     const [goals, setGoals] = useState([])
 
-    const handleGoalAdd = newGoal => {
-      setGoals([...goals, { value: newGoal, key: Math.random().toString() + Date.now() }])
+    const handleGoalAdd = enteredGoal => {
+      const newGoal = { value: enteredGoal, key: Math.random() + Date.now() }
+      console.log({newGoal})
+      setGoals([...goals, newGoal])
     }
 
     const handleGoalDelete = goal => {
-      const newGoals = goals.filter(item => item.key === goal.key)
+      const newGoals = goals.filter(item => item.key !== goal.key)
+      console.log({goal})
+      console.log({newGoals})
       setGoals(newGoals)
     }
 

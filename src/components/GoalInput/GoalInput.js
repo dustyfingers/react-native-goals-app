@@ -12,6 +12,7 @@ const GoalInput = ({addGoal, goals}) => {
       if (enteredGoal === '') return
   
       addGoal(enteredGoal)
+      
       setEnteredGoal('')
     }
 
